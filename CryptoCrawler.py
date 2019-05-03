@@ -25,7 +25,7 @@ date = datetime.strptime(requestString.headers['Date'][:-4], '%a, %d %b %Y %H:%M
 #Adicionei um context manager
 #Cria o arquivo CSV.:
 
-with open("Registro.csv", "a+") as f:
+with open("crypto_timestamp.csv", "a+") as f:
     writers = writer(f, delimiter = ";")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
     if stat("Registro.csv").st_size == 0:
