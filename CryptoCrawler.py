@@ -28,7 +28,7 @@ date = datetime.strptime(requestString.headers['Date'][:-4], '%a, %d %b %Y %H:%M
 with open("crypto_timestamp.csv", "a+") as f:
     writers = writer(f, delimiter = ";")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
-    if stat("Registro.csv").st_size == 0:
+    if stat("crypto_timestamp.csv").st_size == 0:
         writers.writerow(["#", "Name", "Price(USD)", "Chg(24H)", "Var(7D)", "Symbol", "Price(BTC)", "MarketCap", "Vol(24H)", "Total Volume", "Timestamp"])
 
     """
