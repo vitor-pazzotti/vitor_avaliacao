@@ -29,7 +29,7 @@ with open("Registro.csv", "a+") as f:
     writers = writer(f, delimiter = ";")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
     if stat("Registro.csv").st_size == 0:
-        writers.writerow(["#", "Nome", "Price(USD)", "Chg(24H)", "Var(7D)", "Symbol", "Price(BTC)", "MarketCap", "Vol(24H)", "Total Volume", "Timestamp"])
+        writers.writerow(["#", "Name", "Price(USD)", "Chg(24H)", "Var(7D)", "Symbol", "Price(BTC)", "MarketCap", "Vol(24H)", "Total Volume", "Timestamp"])
 
     """
     Laço utilizado para formatar e inserir os valores no arquivo csv.
