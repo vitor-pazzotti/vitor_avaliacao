@@ -56,7 +56,7 @@ def gravar(saida):
         with open( cwd + '/VitorPazzotti/crawler_dolar/dolar_data.csv', 'a+') as f:
             writer = csv.writer(f, delimiter = ',')
 	#verifica se o arquivo está vazio, e se estiver, escreve o cabeçalho.
-            if os.stat(cwd + 'VitorPazzotti/crawler_dolar/dolar_data.csv').st_size == 0:
+            if os.stat(cwd + '/VitorPazzotti/crawler_dolar/dolar_data.csv').st_size == 0:
                 writer.writerow(['Currency', 'Value', 'Change', 'Percentual', 'Timestamp'])
 
             writer.writerow(saida)
