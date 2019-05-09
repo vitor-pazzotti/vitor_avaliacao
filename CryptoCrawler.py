@@ -12,7 +12,7 @@ import requests
 cwd = os.getcwd()
 crypto_Url = "https://m.investing.com/crypto/"
 
-requestString = get(url = crypto_Url, headers = {'User-Agent':'curl/7.52.1'})
+requestString = requests.get(url = crypto_Url, headers = {'User-Agent':'curl/7.52.1'})
 soup = BeautifulSoup(requestString.text, "html.parser") #Troquei o parser para html.parser
 
 # Faz o scrap do objeto soup que contém o html do site
