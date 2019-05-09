@@ -1,14 +1,15 @@
 #! /usr/bin/env python3
 
 from os import stat
+import os
 from bs4 import BeautifulSoup
 from csv import writer
 from datetime import datetime
-from requests import ReadTimeout, ConnectTimeout, HTTPError, Timeout, ConnectionError, get
+import requests
 
 # endereço do site que será raspado
 # URL
-
+cwd = os.getcwd()
 crypto_Url = "https://m.investing.com/crypto/"
 
 requestString = get(url = crypto_Url, headers = {'User-Agent':'curl/7.52.1'})
@@ -25,10 +26,10 @@ date = datetime.strptime(requestString.headers['Date'][:-4], '%a, %d %b %Y %H:%M
 #Adicionei um context manager
 #Cria o arquivo CSV.:
 
-with open("crypto_timestamp.csv", "a+") as f:
-    writers = writer(f, delimiter = ";")
+with open(cwd + "/VitorPazzotti/crawler_crypto/crypto_timestamp.csv", "a+") as f:
+    writers = writer(f, delimiter = ",")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
-    if stat("crypto_timestamp.csv").st_size == 0:
+    if stat(cwd + "/VitorPazzotti/crawler_crypto/crypto_timestamp.csv").st_size == 0:
         writers.writerow(["#", "Name", "Price(USD)", "Chg(24H)", "Var(7D)", "Symbol", "Price(BTC)", "MarketCap", "Vol(24H)", "Total Volume", "Timestamp"])
 
     """

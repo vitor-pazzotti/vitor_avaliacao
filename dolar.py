@@ -6,6 +6,7 @@ import csv
 import os
 
 # função para localizar e extrair o titulo da moeda 
+cwd = os.getcwd()
 def moeda(html):
 	"""paramatro: html -> conteúdo da páginareturn: conteduo -> tipo de moeda"""
 	#verifica o titulo da moeda
@@ -52,10 +53,10 @@ def data(r):
 def gravar(saida):
 	#abertura do arquivo com append
         #Mudei a abertura do arquivo para um context manager.
-        with open('dolar_data.csv', 'a+') as f:
-            writer = csv.writer(f, delimiter = ';')
+        with open( cwd + '/VitorPazzotti/crawler_dolar/dolar_data.csv', 'a+') as f:
+            writer = csv.writer(f, delimiter = ',')
 	#verifica se o arquivo está vazio, e se estiver, escreve o cabeçalho.
-            if os.stat('dolar_data.csv').st_size == 0:
+            if os.stat(cwd + 'VitorPazzotti/crawler_dolar/dolar_data.csv').st_size == 0:
                 writer.writerow(['Currency', 'Value', 'Change', 'Percentual', 'Timestamp'])
 
             writer.writerow(saida)
