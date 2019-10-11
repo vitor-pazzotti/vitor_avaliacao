@@ -14,10 +14,10 @@ mkdir vitorPazzotti/crawler_crypto
 mkdir vitorPazzotti/crawler_crypto/processados
 mkdir vitorPazzotti/crawler_crypto/consolidados
 mkdir vitorPazzotti/crawler_crypto/consolidados/transferidos
-mdkir vitorPazzotti/crawler_dolar
-mdkir vitorPazzotti/crawler_dolar/transferidos
-mdkir vitorPazzotti/processados_json
-mdkir vitorPazzotti/processados_json/indexados
+mkdir vitorPazzotti/crawler_dolar
+mkdir vitorPazzotti/crawler_dolar/transferidos
+mkdir vitorPazzotti/processados_json
+mkdir vitorPazzotti/processados_json/indexados
 
 ##Pasta no HDFS
 # hdfs -dfs mkdir user
@@ -37,9 +37,9 @@ rm -rf vitor_avaliacao-master
 
 ##Crontab de execucao do arquivo Crypto e dolar
 (crontab -l 2>/dev/null; echo "*/2 * * * * cd $PWD && /usr/bin/python3 $PWD/vitorPazzotti/bin/CryptoCrawler.py") | crontab -
-(crontab -l 2>/dev/null; echo "30 14 */1 * * cd $PWD && /usr/bin/python3 $PWD/vitorPazzotti/bin/dolar.py") | crontab -
+(crontab -l 2>/dev/null; echo "40 14 */1 * * cd $PWD && /usr/bin/python3 $PWD/vitorPazzotti/bin/dolar.py") | crontab -
 
-(crontab -l 2>/dev/null; echo "32 14 */1 * * mv $PWD/vitorPazzotti/crawler_crypto/*.csv $PWD/vitorPazzotti/crawler_crypto/consolidados") | crontab -
+(crontab -l 2>/dev/null; echo "45 14 */1 * * mv $PWD/vitorPazzotti/crawler_crypto/*.csv $PWD/vitorPazzotti/crawler_crypto/consolidados") | crontab -
 
 
 

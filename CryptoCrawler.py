@@ -30,7 +30,7 @@ time = datetime.time()
 with open(cwd + f"/vitorPazzotti/bin/crawler_crypto/crypto_{time}.csv", "a+") as f:
     writers = writer(f, delimiter = ",")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
-    if stat(cwd + "/VitorPazzotti/crawler_crypto/crypto_timestamp.csv").st_size == 0:
+    if stat(cwd + f"/vitorPazzotti/bin/crawler_crypto/crypto_{time}.csv").st_size == 0:
         writers.writerow(["#", "Name", "Price(USD)", "Chg(24H)", "Var(7D)", "Symbol", "Price(BTC)", "MarketCap", "Vol(24H)", "Total Volume", "Timestamp"])
 
     """

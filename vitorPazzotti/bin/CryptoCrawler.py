@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from csv import writer
 from datetime import datetime
 import requests
+import time
 
 # endereço do site que será raspado
 # URL
@@ -25,8 +26,8 @@ date = datetime.strptime(requestString.headers['Date'][:-4], '%a, %d %b %Y %H:%M
 
 #Adicionei um context manager
 #Cria o arquivo CSV.:
-
-with open(cwd + "/VitorPazzotti/crawler_crypto/crypto_timestamp.csv", "a+") as f:
+time = datetime.time()
+with open(cwd + f"/vitorPazzotti/bin/crawler_crypto/crypto_{time}.csv", "a+") as f:
     writers = writer(f, delimiter = ",")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
     if stat(cwd + "/VitorPazzotti/crawler_crypto/crypto_timestamp.csv").st_size == 0:

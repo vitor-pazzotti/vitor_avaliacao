@@ -4,6 +4,7 @@ import requests
 from datetime import datetime
 import csv
 import os
+import time
 
 # função para localizar e extrair o titulo da moeda 
 cwd = os.getcwd()
@@ -53,13 +54,14 @@ def data(r):
 def gravar(saida):
 	#abertura do arquivo com append
         #Mudei a abertura do arquivo para um context manager.
-        with open( cwd + '/VitorPazzotti/crawler_dolar/dolar_data.csv', 'a+') as f:
+	time = datetime.time()
+	with open( cwd + f'/vitorPazzotti/bin/crawler_dolar/dolar_{time}.csv', 'a+') as f:
             writer = csv.writer(f, delimiter = ',')
 	#verifica se o arquivo está vazio, e se estiver, escreve o cabeçalho.
-            if os.stat(cwd + '/VitorPazzotti/crawler_dolar/dolar_data.csv').st_size == 0:
-                writer.writerow(['Currency', 'Value', 'Change', 'Percentual', 'Timestamp'])
+	if os.stat(cwd + '/VitorPazzotti/crawler_dolar/dolar_data.csv').st_size == 0:
+		writer.writerow(['Currency', 'Value', 'Change', 'Percentual', 'Timestamp'])
 
-            writer.writerow(saida)
+	writer.writerow(saida)
 
 if __name__ == '__main__':
     # Mudança para capturar 20 vezes a mesma moeda.
