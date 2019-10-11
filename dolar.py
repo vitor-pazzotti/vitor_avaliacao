@@ -54,11 +54,11 @@ def data(r):
 def gravar(saida):
 	#abertura do arquivo com append
         #Mudei a abertura do arquivo para um context manager.
-	time = datetime.time()
-	with open( cwd + f'/vitorPazzotti/bin/crawler_dolar/dolar_{time}.csv', 'a+') as f:
+	h = time.time()
+	with open( cwd + f'/vitorPazzotti/crawler_dolar/dolar_{h}.csv', 'a+') as f:
             writer = csv.writer(f, delimiter = ',')
 	#verifica se o arquivo está vazio, e se estiver, escreve o cabeçalho.
-	if os.stat(cwd + f'/vitorPazzotti/bin/crawler_dolar/dolar_{time}}.csv').st_size == 0:
+	if os.stat(cwd + f'/vitorPazzotti/crawler_dolar/dolar_{h}.csv').st_size == 0:
 		writer.writerow(['Currency', 'Value', 'Change', 'Percentual', 'Timestamp'])
 
 	writer.writerow(saida)
