@@ -26,11 +26,11 @@ date = datetime.strptime(requestString.headers['Date'][:-4], '%a, %d %b %Y %H:%M
 
 #Adicionei um context manager
 #Cria o arquivo CSV.:
-time = datetime.time()
-with open(cwd + f"/vitorPazzotti/bin/crawler_crypto/crypto_{time}.csv", "a+") as f:
+h = time.time()
+with open(cwd + f"/vitorPazzotti/crawler_crypto/crypto_{h}.csv", "a+") as f:
     writers = writer(f, delimiter = ",")
     #Verifica se o arquivo está vazio, e escreve o cabeçalho.
-    if stat(cwd + f"/vitorPazzotti/bin/crawler_crypto/crypto_{time}.csv").st_size == 0:
+    if stat(cwd + f"/vitorPazzotti/crawler_crypto/crypto_{h}.csv").st_size == 0:
         writers.writerow(["#", "Name", "Price(USD)", "Chg(24H)", "Var(7D)", "Symbol", "Price(BTC)", "MarketCap", "Vol(24H)", "Total Volume", "Timestamp"])
 
     """
