@@ -37,7 +37,7 @@ rm -rf vitor_avaliacao-master
 
 ##Crontab de execucao do arquivo Crypto e dolar
 (crontab -l 2>/dev/null; echo "*/1 * * * * cd $PWD && /usr/bin/python3 $PWD/vitorPazzotti/bin/CryptoCrawler.py") | crontab -
-(crontab -l 2>/dev/null; echo "*/1 * * * * cd $PWD && /usr/bin/python3 $PWD/vitorPazzotti/bin/dolar.py") | crontab -
+(crontab -l 2>/dev/null; echo "*/1 * * * * cd $PWD && /usr/bin/python3 $PWD/vitorPazzotti/bin/CryptoCrawler.py") | crontab -
 # (crontab -l 2>/dev/null; echo "56 14 */1 * * mv $PWD/vitorPazzotti/crawler_crypto/*.csv $PWD/vitorPazzotti/crawler_crypto/consolidados") | crontab -
 sudo chmod -R 777 $PWD/vitorPazzotti
 # sudo chmod 0777 $PWD/vitorPazzotti/crawler_crypto
